@@ -1,56 +1,65 @@
 package tpwquotes.model;
 
-import java.util.*;
 import java.io.Serializable;
+import java.util.*;
 import javax.persistence.*;
 
+
+
 @Entity
-@Table(name="tUser")
-public class User implements java.io.Serializable
+public class User implements Serializable
 {
-	@Id
-	@Column(name="cpf", unique=true, nullable=false)
-	private String cpf;
-	
-	@Column(name="name", nullable=false)
+	private String id;
 	private String name;
-	
-	@Column(name="email", nullable=false)
 	private String email;
-	
-	@Column(name="password", nullable=false)
 	private String password;
-	
-	@Column(name="photo", nullable=true)
-	private String photo;
-	
-	@Column(name="phone", nullable=true)
+  private String photo;
 	private String phone;
+	private Set<Transaction> transactions = new HashSet<Transaction>();
+	private Set<Balance> balances = new HashSet<Balance>();
 	
+<<<<<<< Updated upstream
 	public void setCpf(String cpf) { this.cpf = cpf; }
 	public void setName(String name) { this.name = name; }
 	public void setEmail(String email) { this.email = email; }
 	public void setPassword(String password) { this.password = password; }
 	public void setPhoto(String photo) { this.photo = photo; }
 	public void setPhone(String phone) { this.phone = phone; }
+=======
+	public User() {}
+>>>>>>> Stashed changes
 	
-	public String getCpf() { return this.cpf; }
+	@Id
+	public setId(String id) { this.id = id; }
+	public String getId() { return this.id; }
+
+	@Column(nullable=false)	
+	public setName(String name) { this.name = name; }
 	public String getName() { return this.name; }
+
+	@Column(nullable=false)
+	public setEmail(String email) { this.email = email; }
 	public String getEmail() { return this.email; }
+
+	@Column(nullable=false)
+	public setPassword(String password) { this.password = password; }
 	public String getPassword() { return this.password; }
+
+	@Column
+	public setPhoto(String photo) { this.photo = photo; }
 	public String getPhoto() { return this.photo; }
+
+	@Column(nullable=false)
+	public setPhone(String phone) { this.phone = phone; }
 	public String getPhone() { return this.phone; }
 	
 	@OneToMany
-	@JoinColumn (name="cpf")
-	private Set<Transaction> transactions = new HashSet<Transaction>();
+	@JoinColumn (name="user_id")
 	public Set<Transaction> getTransactions() { return this.transactions; }	
-	
+	public void setTransactions(Set<Transaction> transactions) { this.tranctions = transactions; }
+		
 	@OneToMany
-	@JoinColumn (name="cpf")
-	private Set<Balance> balances = new HashSet<Balance>();
+	@JoinColumn (name="user_id")
 	public Set<Balance> getBalances() { return this.balances; }
-	
-	
-	
+	public void setBalances(Set<Balance> balances) { this.balances = balances; }
 }
