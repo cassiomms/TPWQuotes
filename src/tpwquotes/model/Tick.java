@@ -6,21 +6,20 @@ import javax.persistence.*;
 
 
 
-
 @Entity
-@Table(name="tTick")
-public class Tick implements java.io.Serializable {
-	@Id
-	@Column(name="tk", nullable=false,unique=true)
-	private TickKey tk;
-	
-	@Column(name="value", nullable=false)
+public class Tick implements java.io.Serializable 
+{
+	private TickPk id;
 	private Float value;
 
 	public Tick() {}
+
+	@Id
+  public TickPk getId() { return id; }
+  public void setId(TickPk id) { this.id = id; }
 	
+	@Column(nullable=false)
 	public Float getValue() { return this.value;}
-	public void setValue(Float value) { this.value = value; }
-	
+	public void setValue(Float value) { this.value = value; }	
 }
 
