@@ -48,7 +48,7 @@ http://help.github.com/linux-set-up-git/
 
 Depois do ssh funcionando, é só clonar o repositório:
 
-	$ git clone git@github.com:thiagokronig/E-Commerce.git
+	$ git clone git@github.com:cassiomms/TPWQuotes.git
 
 Depois de clonado, só usar os comandos abaixo, não esquecer de sempre dar pull qdo for começar a trabalhar, commit qdo terminar e push pra mandar para o repositório remoto...
 
