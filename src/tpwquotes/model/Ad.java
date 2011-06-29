@@ -11,6 +11,7 @@ public class Ad implements java.io.Serializable {
 	@Column(name="aid", unique=true, nullable=false)
 	@SequenceGenerator(name = "seq_aid", sequenceName = "seq_aid")
         @GeneratedValue(strategy=GenerationType.AUTO, generator="seq_aid")
+        private Long aid;
         
         @ManyToOne
         @JoinColumn (name="code", nullable = false, updatable = false, insertable = false)
@@ -21,7 +22,7 @@ public class Ad implements java.io.Serializable {
         @ManyToOne
         @JoinColumn (name="cpf", nullable = false, updatable = false, insertable = false)
 	private User seller;
-	public User getSeller() { return this.quote; }
+	public User getSeller() { return this.seller; }
 	public void setSeller(User seller) { this.seller = seller; }
         
 	@Column(name="quantity", nullable=false)

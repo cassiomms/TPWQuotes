@@ -17,8 +17,8 @@ public class Interest implements java.io.Serializable
 	@Column(name="value", nullable=false)
 	private Float value;
 	
-	public setDate(Date date) { this.date = date; }
-	public setValue(Float value) { this.value = value; }
+	public void setDate(Date date) { this.date = date; }
+	public void setValue(Float value) { this.value = value; }
 	
 	public Date getDate() { return this.date; }
 	public Float getValue() { return this.value; }
