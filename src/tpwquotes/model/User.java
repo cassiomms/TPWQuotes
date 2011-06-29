@@ -18,17 +18,8 @@ public class User implements Serializable
 	private Set<Transaction> transactions = new HashSet<Transaction>();
 	private Set<Balance> balances = new HashSet<Balance>();
 	
-<<<<<<< Updated upstream
-	public void setCpf(String cpf) { this.cpf = cpf; }
-	public void setName(String name) { this.name = name; }
-	public void setEmail(String email) { this.email = email; }
-	public void setPassword(String password) { this.password = password; }
-	public void setPhoto(String photo) { this.photo = photo; }
-	public void setPhone(String phone) { this.phone = phone; }
-=======
 	public User() {}
->>>>>>> Stashed changes
-	
+
 	@Id
 	public setId(String id) { this.id = id; }
 	public String getId() { return this.id; }
