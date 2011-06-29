@@ -17,10 +17,9 @@
 
     <property name="hbm2ddl.auto">create</property>
 
-    <mapping class="tpwquotes.model.User"/>
-    <mapping class="tpwquotes.model.Ad"/>
+    <mapping class="tpwquotes.model.Ad"/> 
     <mapping class="tpwquotes.model.Balance"/>
-    <mapping class="tpwquotes.model.BalanceKey"/>
+    <mapping class="tpwquotes.model.BalancePk"/>
     <mapping class="tpwquotes.model.Interest"/>
     <mapping class="tpwquotes.model.Investment"/>
     <mapping class="tpwquotes.model.Loan"/>
@@ -31,8 +30,7 @@
     <mapping class="tpwquotes.model.User"/>
     <mapping class="tpwquotes.model.Wallet"/>
     <mapping class="tpwquotes.model.WalletKey"/>
-
-
+    
   </session-factory>
 </hibernate-configuration>
 
