@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SIG" basedir="." default="build">
+  <property name="deploy" value="/opt/tomcat/webapps/"/>
+  <property name="src" value="${basedir}/src"/>
+  <property name="build" value="${basedir}/build"/>
+  <property name="lib" value="${basedir}/lib"/>
+  <property name="war" value="${basedir}/war"/>
+  <property name="web" value="${basedir}/web"/>
+  <property name="warfile" value="${basedir}/ecommerce.war"/>
+  
+  <path id="lib">
+    <fileset dir="${lib}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="build">
+    <mkdir dir="${build}"/>
+    <javac srcdir="${src}" destdir="${build}" classpathref="lib" includeantruntime="false"/>
+  </target>
+  
+  <target name="war" depends="build">
+    <mkdir dir="${war}/WEB-INF/classes"/>
+    <mkdir dir="${war}/WEB-INF/lib"/>
+    
+		<copy todir="${war}/WEB-INF/classes">
+			<fileset dir="${build}" includes="**/*.class" />
+			<fileset dir="${basedir}" includes="hibernate.*" />
+		</copy>
+
+		<copy todir="${war}/WEB-INF/lib">
+			<fileset dir="${lib}" includes="**/*.*" /> 
+		</copy>
+
+		<copy todir="${war}/WEB-INF">
+			<fileset dir="${basedir}" includes="web.xml" /> 
+		</copy>
+
+		<copy todir="${war}">
+			<fileset dir="${web}" includes="**/*.*" /> 
+		</copy>
+
+		<jar jarfile="${warfile}" basedir="${war}" />
+	</target>
+
+	<target name="deploy">
+	  <copy todir="${deploy}" file="${warfile}"/>
+	</target>
+
+  <target name="clean">
+    <delete dir="${build}"/>
+  </target>
+</project>
