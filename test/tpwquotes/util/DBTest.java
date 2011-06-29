@@ -1,20 +1,20 @@
-package tpwquotes.model;
+package tpwquotes.util;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test User.
+ * Unit test DB.
  */
-public class UserTest extends TestCase
+public class DBTest extends TestCase
 {
   /**
   * Create the test case
   *
   * @param testName name of the test case
   */
-  public UserTest( String testName )
+  public DBTest( String testName )
   {
     super(testName);
   }
@@ -24,7 +24,7 @@ public class UserTest extends TestCase
   */
   public static Test suite()
   {
-    return new TestSuite(UserTest.class);
+    return new TestSuite(DBTest.class);
   }
 
   public void testModel()
