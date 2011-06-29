@@ -9,9 +9,7 @@
 	<a href="compra.jsp">Comprar</a><br>
 	<a href="venda.jsp">Vender</a><br>
 	<a href="emprestimo.jsp">Emprestimo</a><br>
-		Campo para colocar valor do emprestimo<br>
-		Botao para fazer o emprestimo<br>
-	Logout<br>
+	<a href="logout.jsp">Logout</a><br>
 </div>
 
 <jsp:include page="footer.jsp"/>
