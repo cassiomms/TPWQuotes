@@ -27,12 +27,12 @@ public class User implements java.io.Serializable
 	@Column(name="phone", nullable=true)
 	private String phone;
 	
-	public setCpf(String cpf) { this.cpf = cpf; }
-	public setName(String name) { this.name = name; }
-	public setEmail(String email) { this.email = email; }
-	public setPassword(String password) { this.password = password; }
-	public setPhoto(String photo) { this.photo = photo; }
-	public setPhone(String phone) { this.phone = phone; }
+	public void setCpf(String cpf) { this.cpf = cpf; }
+	public void setName(String name) { this.name = name; }
+	public void setEmail(String email) { this.email = email; }
+	public void setPassword(String password) { this.password = password; }
+	public void setPhoto(String photo) { this.photo = photo; }
+	public void setPhone(String phone) { this.phone = phone; }
 	
 	public String getCpf() { return this.cpf; }
 	public String getName() { return this.name; }
