@@ -17,6 +17,6 @@ public class Loan extends Transaction implements java.io.Serializable
 
 	public Float getValue() { return this.value; }
 
-		public Investment() {}
+		public Loan() {}
 	
 }
