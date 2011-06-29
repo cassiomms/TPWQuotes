@@ -5,8 +5,15 @@
 </jsp:include>
 
 <div id="page">
-	Login<br>
-	Cadastrar<br>
+	<form action="#" id="login_form" method="post">
+
+		<input type="text" id="email" name="email" />
+		<input type="password" id="pass" name="pass" />
+		<input type="submit" value="Login" class="button" />
+
+    </form>
+
+	<a href="signup.jsp"> Cadastrar </a> <br>
 </div>
 
 <jsp:include page="footer.jsp"/>
