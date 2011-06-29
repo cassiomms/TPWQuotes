@@ -4,3 +4,30 @@ Um pedaco do model
 Script de obtencao automatica de libs
 Arquivo do ant com as targets
 
+
+
+ACTIONS
+
+-log in / create user
+
+-add quote to watch
+-buy stock / view market
+-sell stock / auction
+-get loan / pay loan
+-view info
+
+
+DISPLAY
+
+-recommendations
+-current funds & debt
+-current wallet
+-graphs on debt, interest and wallet
+
+
+REFRESH
+
+-get daily info on quote ticks
+-submit daily info on balance history
+-generate daily interest rates
+
