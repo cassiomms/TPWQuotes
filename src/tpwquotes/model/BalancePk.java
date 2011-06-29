@@ -10,15 +10,16 @@ import javax.persistence.*;
 public class BalancePk implements Serializable 
 {	
   private User user;
-	private Timestamp tmsp;
+	private Date tmsp;
 		
-	public BalanceKey() {}
+	//public BalacePk() {}
 	
 	@ManyToOne
   @JoinColumn(nullable = false, updatable = false, insertable = false)
 	public User getUser() { return this.user; }
 	public void setUser(User user) { this.user = user; }
 
-	public Timestamp getTimestamp() { return tmsp; }
-	public void setTimestamp(Timestamp tmsp) { this.tmsp = tmsp; }
+  @Temporal(TemporalType.TIMESTAMP)
+	public Date getDate() { return tmsp; }
+	public void setDate(Date tmsp) { this.tmsp = tmsp; }
 }

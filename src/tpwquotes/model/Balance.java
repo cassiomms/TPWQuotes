@@ -17,11 +17,11 @@ public class Balance implements Serializable
 	public BalancePk getId() { return id; }
 	public void setId(BalancePk id) { this.id = id; }
 	
-	@Column(nullable=false);
-	public Float getFund() { return funds;}
+	@Column(nullable=false)
+	public Float getFund() { return fund;}
 	public void setFund(Float fund) { this.fund = fund; }
 	
-	@Column(nullable=false);	
+	@Column(nullable=false)	
 	public Float getDebt() { return debt;}
 	public void setDebt(Float debt) { this.debt = debt; }
 }

@@ -21,33 +21,33 @@ public class User implements Serializable
 	public User() {}
 
 	@Id
-	public setId(String id) { this.id = id; }
+	public void setId(String id) { this.id = id; }
 	public String getId() { return this.id; }
 
 	@Column(nullable=false)	
-	public setName(String name) { this.name = name; }
+	public void setName(String name) { this.name = name; }
 	public String getName() { return this.name; }
 
 	@Column(nullable=false)
-	public setEmail(String email) { this.email = email; }
+	public void setEmail(String email) { this.email = email; }
 	public String getEmail() { return this.email; }
 
 	@Column(nullable=false)
-	public setPassword(String password) { this.password = password; }
+	public void setPassword(String password) { this.password = password; }
 	public String getPassword() { return this.password; }
 
 	@Column
-	public setPhoto(String photo) { this.photo = photo; }
+	public void setPhoto(String photo) { this.photo = photo; }
 	public String getPhoto() { return this.photo; }
 
 	@Column(nullable=false)
-	public setPhone(String phone) { this.phone = phone; }
+	public void setPhone(String phone) { this.phone = phone; }
 	public String getPhone() { return this.phone; }
 	
 	@OneToMany
 	@JoinColumn (name="user_id")
 	public Set<Transaction> getTransactions() { return this.transactions; }	
-	public void setTransactions(Set<Transaction> transactions) { this.tranctions = transactions; }
+	public void setTransactions(Set<Transaction> transactions) { this.transactions = transactions; }
 		
 	@OneToMany
 	@JoinColumn (name="user_id")
