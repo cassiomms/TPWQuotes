@@ -3,6 +3,9 @@ package tpwquotes.util;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.hibernate.Session;
+
+
 
 /**
  * Unit test DB.
@@ -27,8 +30,13 @@ public class DBTest extends TestCase
     return new TestSuite(DBTest.class);
   }
 
-  public void testModel()
+  public void testSessionCreate()
   {
+    Session session = DB.getSessionFactory().getCurrentSession();
+    session.getTransaction().begin();
+    session.getTransaction().commit();
+    session.getSessionFactory().close(); 
+
     assertTrue(true);
   }
 }
