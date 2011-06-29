@@ -5,7 +5,14 @@
 </jsp:include>
 
 <div id="page">
-	Lista de acoes disponiveis para compra<br>
+	Listar acoes disponiveis para compra:<br>
+	<form action="#" id="listbuy_form" method="post" >
+		<ul>
+			<li>Name: </li>
+			<li>Value: </li>
+		</ul>
+		<input type="Submit" value="List" class="button"/>
+	</form>
 </div>
 
 <jsp:include page="footer.jsp"/>

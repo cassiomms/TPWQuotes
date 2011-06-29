@@ -5,11 +5,13 @@
 </jsp:include>
 
 <div id="page">
-	<a href="carteira.jsp">Carteira</a><br>
-	<a href="compra.jsp">Comprar</a><br>
-	<a href="venda.jsp">Vender</a><br>
-	<a href="emprestimo.jsp">Emprestimo</a><br>
-	<a href="logout.jsp">Logout</a><br>
+	<menu>
+		<li><a href="carteira.jsp">Carteira</a><br></li>
+		<li><a href="compra.jsp">Comprar</a><br></li>
+		<li><a href="venda.jsp">Vender</a><br></li>
+		<li><a href="emprestimo.jsp">Emprestimo</a><br></li>
+		<li><a href="logout.jsp">Logout</a><br></li>
+	</menu>
 </div>
 
 <jsp:include page="footer.jsp"/>
