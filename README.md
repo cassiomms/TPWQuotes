@@ -64,7 +64,7 @@ Você deve adicionar os arquivos que deseja controlar com o Git. Se criarmos
 um novo bean NovoBean.java em src/ecommerce/model/NovoBean.java, ele não 
 estará sob controle do Git ainda! Para tanto, faça:
    
-    $ git add src/ecommerce/model/NovoBean.java
+    $ git add src/tpwquotes/model/Newbean.java
 
 Beleza! Agora suponha que você modificou o conteúdo de outros arquivos, por 
 exemplo, corrigiu um bug foda no src/ecommerce/model/Usuario.java. Ele já 
@@ -72,12 +72,12 @@ está sob controle do Git, entretanto a sua alteração não foi instanciada
 pro Git ainda. Ou seja, ele não vai commitar essa alteração enquanto você 
 não explicitar pra ele. Você o faz com o mesmo comando add:
     
-    $ git add src/ecommerce/model/Usuario.java
+    $ git add src/tpwquotes/model/User.java
 
 Um saco, não? Mas beleza, isso permite que você altere uma pancada de arquivos 
 e depois faça o commit de pequenas porções, por exemplo:
 
-    $ git add src/ecommerce/model/*
+    $ git add src/tpwquotes/model/*
     $ git commit -m 'Correções do model.'
     $ git add web/static/*.css  
     $ git commit -m 'Novas classes para o css.'
@@ -85,7 +85,7 @@ e depois faça o commit de pequenas porções, por exemplo:
 Alterações dentro da árvore de diretório devem ser feitas sempre que possível
 pelo Git. Para alterar o nome/caminho de um arquivo, por exemplo, faça:
 
-    $ git mv src/ecommerce/model/Account.java src/ecommerce/model/Usuario.java
+    $ git mv src/tpwquotes/model/Account.java src/tpwquotes/model/User.java
 
 E pra deletar, faça:
 
