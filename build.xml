@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<project name="SIG" basedir="." default="build">
-  <property name="deploy" value="/opt/tomcat/webapps/"/>
-=======
 <project name="TPWQuotes" basedir="." default="build">
   <property name="deploy" value="/usr/local/tomcat/webapps/"/>
->>>>>>> b511532a91ea06d1a11a070787b362c1333e347a
   <property name="src" value="${basedir}/src"/>
   <property name="build" value="${basedir}/build"/>
   <property name="lib" value="${basedir}/lib"/>
   <property name="war" value="${basedir}/war"/>
   <property name="web" value="${basedir}/web"/>
-<<<<<<< HEAD
-  <property name="warfile" value="${basedir}/ecommerce.war"/>
-=======
   <property name="warfile" value="${basedir}/tpwquotes.war"/>
->>>>>>> b511532a91ea06d1a11a070787b362c1333e347a
   
   <path id="lib">
     <fileset dir="${lib}">
@@ -36,17 +27,6 @@
 			<fileset dir="${build}" includes="**/*.class" />
 			<fileset dir="${basedir}" includes="hibernate.*" />
 		</copy>
-<<<<<<< HEAD
-
-		<copy todir="${war}/WEB-INF/lib">
-			<fileset dir="${lib}" includes="**/*.*" /> 
-		</copy>
-
-		<copy todir="${war}/WEB-INF">
-			<fileset dir="${basedir}" includes="web.xml" /> 
-		</copy>
-
-=======
 		
 		<copy todir="${war}/WEB-INF/lib">
 			<fileset dir="${lib}" includes="**/*.*" /> 
@@ -56,18 +36,13 @@
 			<fileset dir="${basedir}" includes="web.xml" /> 
 		</copy>
 		
->>>>>>> b511532a91ea06d1a11a070787b362c1333e347a
 		<copy todir="${war}">
 			<fileset dir="${web}" includes="**/*.*" /> 
 		</copy>
 
 		<jar jarfile="${warfile}" basedir="${war}" />
 	</target>
-<<<<<<< HEAD
-
-=======
 	
->>>>>>> b511532a91ea06d1a11a070787b362c1333e347a
 	<target name="deploy">
 	  <copy todir="${deploy}" file="${warfile}"/>
 	</target>
