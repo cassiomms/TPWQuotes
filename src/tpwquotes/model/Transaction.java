@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.Serializable;
 import javax.persistence.*;
 
-//Juros
+
 
 @Entity
 @Table(name="tTransaction")
@@ -38,7 +38,7 @@ public class Transaction implements java.io.Serializable
 	
 	@ManyToOne
         @JoinColumn (name="cpf", nullable = false, updatable = false, insertable = false)
-	private User buyer;  //USUARIO QUE ESTÁ VENDENDO (ou o banco num emprestimo)
+	private User buyer;  //USUARIO QUE ESTÁ COMPRANDO (ou o usuario num emprestimo)
 	public User getBuyer() { return this.buyer; }
 	public void setBuyer(User buyer) { this.buyer = buyer; }
 	
