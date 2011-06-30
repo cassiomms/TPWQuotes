@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 public class Wallet implements Serializable 
 {
+	@Id
 	private WalletPk id;
 	private Integer quantity;
 	

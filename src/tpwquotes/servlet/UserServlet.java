@@ -15,14 +15,13 @@ public class UserServlet extends HttpServlet implements Default
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, java.io.IOException
 	{
-	   String targetUrl = null;
+	   String targetUrl = "index.jsp?msg=bug";
 	   try
 	   {
 			// redirecionar de forma forcada
 			//PageContext pageContext = JspFactory.getDefaultFactory().getPageContext(this, request, response, null, true, 8192, true);
 
 			HttpSession psession = request.getSession();
-			PrintWriter out = response.getWriter();
 
 			int type = -1;
 			try
@@ -33,14 +32,13 @@ public class UserServlet extends HttpServlet implements Default
 			{
 				targetUrl = "index.jsp?msg=exception";
 				response.sendRedirect(targetUrl);
+				return;
 			}
 
 			String email = request.getParameter("email");
 			String password	= request.getParameter("password");
 			//String name	= request.getParameter("name");
-			// freespace, space
 
-			User user = null;
 			Session dbsession = DB.getSessionFactory().getCurrentSession();
 
 			switch (type)
@@ -52,18 +50,24 @@ public class UserServlet extends HttpServlet implements Default
 					
 					//break;
 				case LOGIN: 
+					dbsession.beginTransaction();
 					List users = dbsession.createCriteria(User.class)
 					.add( Restrictions.eq("email", email) )
 					.add( Restrictions.eq("password", password) )
 					.list();
+					dbsession.getTransaction().commit();
 					
 					if (users.isEmpty())
+					{
 						targetUrl = "index.jsp?msg=invalid"; //Usuario invalido
+						DB.getSessionFactory().close();
+					}
 					else // Achou o usuario com email e senha
 					{
 						//Adiciona o usuario na http session aqui
 						
 						targetUrl = "user.jsp";
+						DB.getSessionFactory().close();
 					}
 					
 					break;
@@ -72,7 +76,7 @@ public class UserServlet extends HttpServlet implements Default
 					targetUrl = "index.jsp?msg=logout";
 					break;
 				default: 
-					targetUrl = "index.jsp?msg=notfound";
+					targetUrl = "index.jsp?msg=nf";
 					break;
 			}
 		}
@@ -81,10 +85,9 @@ public class UserServlet extends HttpServlet implements Default
 			e.printStackTrace();
 			targetUrl = "index.jsp?msg=exception2";
 		}
-		finally
-		{
-			response.sendRedirect(targetUrl);
-		}
+		
+		response.sendRedirect(targetUrl);
+		return;
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
