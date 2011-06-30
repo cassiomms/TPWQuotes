@@ -7,16 +7,24 @@
 </jsp:include>
 
 <div id="page">
-	Listar acoes disponiveis para compra:<br>
-	<form action="#" id="listbuy_form" method="post" >
-		<input type="Submit" value="List" class="button"/>
-		<ul>
-		<%  for () /*Seleciona as compras disponiveis do usuario*/
-		<li>Name: </li>
-		<li>Value: </li>
-		%>
-		</ul>
-	</form>
+	<div>
+		<big><b>Search the quotes:</big></b><br>
+		<form id="form" name="searchQuotesToBuy_form" method="post" action="#">
+			  <span>
+			  <input name="q" type="text" class="keywords" id="code" maxlength="50" value="Search..." />
+			  <input name="b" type="image" src="static/images/search.gif" class="button" />
+			  </span>
+		</form>
+	</div>
+	<%/*Buscar as quotes indicadas*/%>
+	<div>
+			<p>Name: <%=t.getName()%></p>
+			<p>Value: <br/><%=t.getValue()%></p>
+			<form action="#" name="indicatedQuotes_form" method="post">
+				<input type="text" name="quantity" value="<%/*Valor da quantidade que sera usado para calcular o total*/%>"/>
+				<input type="submit" name="action" value="Sell" />			
+			</form>
+	</div>
 </div>
 
 <jsp:include page="footer.jsp"/>

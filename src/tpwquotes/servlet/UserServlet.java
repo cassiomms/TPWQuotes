@@ -1,7 +1,8 @@
 package tpwquotes.servlet;
 
 import java.io.*;
-import java.util.List;
+import java.util.*;
+import java.lang.*;
 import javax.servlet.*;
 import javax.servlet.jsp.*;
 import javax.servlet.http.*;
@@ -9,6 +10,9 @@ import tpwquotes.model.*;
 import tpwquotes.util.*;
 import org.hibernate.*;
 import org.hibernate.criterion.*;
+import org.apache.commons.fileupload.*;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 
 public class UserServlet extends HttpServlet implements Default
 {
@@ -22,11 +26,17 @@ public class UserServlet extends HttpServlet implements Default
 			//PageContext pageContext = JspFactory.getDefaultFactory().getPageContext(this, request, response, null, true, 8192, true);
 
 			HttpSession psession = request.getSession();
-
+			
+			boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+			
+			
 			int type = -1;
 			try
 			{
-				type = Integer.parseInt(request.getParameter("type"));
+				if (!isMultipart)
+					type = Integer.parseInt(request.getParameter("type"));
+				else
+					type = 2;
 			}
 			catch (Exception e)
 			{
@@ -35,21 +45,13 @@ public class UserServlet extends HttpServlet implements Default
 				return;
 			}
 
-			String email = request.getParameter("email");
-			String password	= request.getParameter("password");
-			//String name	= request.getParameter("name");
-
 			Session dbsession = DB.getSessionFactory().getCurrentSession();
 
 			switch (type)
 			{
-				//case A:
-					
-					//break;
-				//case B: 
-					
-					//break;
 				case LOGIN: 
+					String email = request.getParameter("email");
+					String password	= request.getParameter("password");
 					dbsession.beginTransaction();
 					List users = dbsession.createCriteria(User.class)
 					.add( Restrictions.eq("email", email) )
@@ -75,8 +77,129 @@ public class UserServlet extends HttpServlet implements Default
 					psession.invalidate();
 					targetUrl = "index.jsp?msg=logout";
 					break;
+				
+				case SIGNUP:
+					try
+					{
+						FileItemFactory factory = new DiskFileItemFactory();
+						ServletFileUpload upload = new ServletFileUpload(factory);
+						FileItem fitem = null;
+
+						List items = null;
+						try
+						{
+							items = upload.parseRequest(request);
+						}
+						catch (FileUploadException e)
+						{
+							targetUrl = "index.jsp?msg=exception3";
+							e.printStackTrace();
+						}
+
+						Iterator itr = items.iterator();
+			
+						User u = new User();
+			
+						while (itr.hasNext())
+						{
+							FileItem item = (FileItem) itr.next();
+
+							if (item.isFormField())
+							{ // form field
+								if (item.getFieldName().equals("cpf"))
+								{
+									try
+									{
+										u.setId(item.getString());
+									}
+									catch (Exception e)
+									{
+										targetUrl = "index.jsp?msg=iderror";
+										response.sendRedirect(targetUrl);
+										return;
+									}
+								}
+								else if (item.getFieldName().equals("name"))
+								{
+									try
+									{
+										u.setName(item.getString());
+									}
+									catch (Exception e)
+									{
+										targetUrl = "index.jsp?msg=nameerror";
+										response.sendRedirect(targetUrl);
+										return;
+									}
+								}
+								else if (item.getFieldName().equals("phone"))
+								{
+									try
+									{
+										u.setPhone(item.getString());
+									}
+									catch (Exception e)
+									{
+										targetUrl = "index.jsp?msg=phoneerror";
+										response.sendRedirect(targetUrl);
+										return;
+									}
+								}
+								else if (item.getFieldName().equals("email"))
+								{
+									try
+									{
+										u.setEmail(item.getString());
+									}
+									catch (Exception e)
+									{
+										targetUrl = "index.jsp?msg=emailerror";
+										response.sendRedirect(targetUrl);
+										return;
+									}
+								}
+								else if (item.getFieldName().equals("password"))
+								{
+									try
+									{
+										u.setPassword(item.getString());
+									}
+									catch (Exception e)
+									{
+										targetUrl = "index.jsp?msg=passworderror";
+										response.sendRedirect(targetUrl);
+										return;
+									}
+								}
+							}
+							else
+							{ // is a file
+								fitem = item;
+							}
+						}
+						
+						dbsession.beginTransaction();
+						
+						u.setPhoto(filePath+"/"+u.getId()+fitem.getName().substring(fitem.getName().lastIndexOf('.')));
+						
+						dbsession.save(u);
+						dbsession.getTransaction().commit();
+						DB.getSessionFactory().close();
+						
+						File savedFile = new File(filePath+"/"+u.getId()+fitem.getName().substring(fitem.getName().lastIndexOf('.')));
+						fitem.write(savedFile);
+						
+						targetUrl = "index.jsp?msg=signupsucess";
+					}
+					catch (Exception e)
+					{
+						targetUrl = "index.jsp?msg=signupfail";
+						e.printStackTrace();
+					}
+					
+					break;
 				default: 
-					targetUrl = "index.jsp?msg=nf";
+					targetUrl = "index.jsp?msg=notfound";
 					break;
 			}
 		}
