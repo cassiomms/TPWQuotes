@@ -22,6 +22,12 @@ COMMONSLOGGING_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven/commons-loggi
 COMMONSCOLLECTIONS_FILE=commons-collections-3.2.jar
 COMMONSCOLLECTIONS_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven/commons-collections/jars/commons-collections-3.2.jar
 
+COMMONSFILEUPLOAD_FILE=commons-fileupload-1.2.2.jar
+COMMONSFILEUPLOAD_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar
+
+COMMONSIO_FILE=commons-io-2.0.1.jar
+COMMONSIO_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar
+
 CGLIB_FILE=cglib-nodep-2.2.2.jar
 CGLIB_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar
 
@@ -65,6 +71,16 @@ fi
 if [ ! -f $LIB/$COMMONSCOLLECTIONS_FILE ]; then
   echo Downloading Apache Commons Collections
   wget -P $LIB $COMMONSCOLLECTIONS_SOURCE
+fi
+
+if [ ! -f $LIB/$COMMONSFILEUPLOAD_FILE ]; then
+  echo Downloading Apache Commons Fileupload
+  wget -P $LIB $COMMONSFILEUPLOAD_SOURCE
+fi
+
+if [ ! -f $LIB/$COMMONSIO_FILE ]; then
+  echo Downloading Apache Commons IO
+  wget -P $LIB $COMMONSIO_SOURCE
 fi
 
 if [ ! -f $LIB/$CGLIB_FILE ]; then
