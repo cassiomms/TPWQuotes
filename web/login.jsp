@@ -5,10 +5,11 @@
 </jsp:include>
 
 <div id="page">
-	<form action="#" id="login_form" method="post">
+	<form action="userservlet" id="login_form" method="post">
+		<input type="hidden" id="type" name="type" value="0" />
 		<p align="center">E-mail:     <input type="text" id="email" name="email" /></p>
-		<p align="center">Password:<input type="password" id="pass" name="pass" /></p>
-		<p align="center"><input name="login" type="image" src="images/submit.gif" class="button" /></p>
+		<p align="center">Password:<input type="password" id="password" name="password" /></p>
+		<p align="center"><input name="login" type="image" src="static/images/submit.gif" class="button" /></p>
 	</form>
 </div>
 

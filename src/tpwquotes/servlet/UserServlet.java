@@ -65,7 +65,7 @@ public class UserServlet extends HttpServlet implements Default
 					else // Achou o usuario com email e senha
 					{
 						//Adiciona o usuario na http session aqui
-						
+						psession.setAttribute("user", (User)users.get(0));
 						targetUrl = "user.jsp";
 						DB.getSessionFactory().close();
 					}

@@ -1,16 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<jsp:include page="header.jsp">
-	<jsp:param name="PAGE_TITLE" value="TPWQuotes"/>
+<jsp:include page="header_user.jsp">
+<jsp:param name="PAGE_TITLE" value="TPWQuotes"/>
 </jsp:include>
 
 <div id="page">
-	Solicitar Emprestimo<br>
+	<center><big><b>Solicitar Emprestimo<br>
 	<form action = "#" id="loan_form" method="post" enctype="multpart/form-data">
-		Valor: <input type="text" size="50" id="value" name="value" />
-		<input type="submit" value="Submit" class="button"/>
+	<p align="center"><b>Valor: <input type="text" size="15" id="value" name="value" /></p>
+	<p align="center"><input type="submit" value="Submit" class="button"/></p>
 	</form>
-</div>
+</div>  
 
 <jsp:include page="footer.jsp"/>
-

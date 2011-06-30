@@ -1,3 +1,5 @@
+<%@ include file="autentication.jsp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -22,10 +24,11 @@
       </div>
       <div class="menu_nav">
         <ul>
-          <li><a href="index.jsp">Home</a></li>
-          <li><a href="login.jsp">Log-in</a></li>
-          <li><a href="signup.jsp">Sign-up</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Wallet</a></li>
+          <li><a href="#">Buy</a></li>
+          <li><a href="#">Sell</a></li>
+          <li><a href="#">Loan</a></li>
+          <li><a href="userservlet?type=1">Logout</a></li>
         </ul>
       </div>
       <div class="clr"></div>
@@ -38,3 +41,13 @@
     </div>
   </div>
   <div class="clr"></div>
+  <div id="page">
+Listar acoes disponiveis para compra:<br>
+<form action="#" id="listbuy_form" method="post" >
+<ul>
+<input type="Submit" value="List" class="button"/>
+<li> Name: </li>
+<li> Value: </li>
+</ul>
+</form>
+</div>
