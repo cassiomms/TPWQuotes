@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="TPWQuotes" basedir="." default="build">
-  <property name="deploy" value="/usr/local/tomcat/webapps/"/>
+  <property name="tomcat" value="/usr/local/tomcat/"/>
+  <property name="deploy" value="${tomcat}/webapps/"/>
   <property name="src" value="${basedir}/src"/>
   <property name="build" value="${basedir}/build"/>
   <property name="lib" value="${basedir}/lib"/>
@@ -12,11 +13,16 @@
     <fileset dir="${lib}">
       <include name="*.jar"/>
     </fileset>
+    <fileset dir="${tomcat}/lib">
+      <include name="*.jar"/>
+    </fileset>
   </path>
 
   <target name="build">
     <mkdir dir="${build}"/>
-    <javac srcdir="${src}" destdir="${build}" classpathref="lib" includeantruntime="false"/>
+    <javac srcdir="${src}" destdir="${build}" includeantruntime="false">
+    	<classpath refid="lib"/>
+    </javac>
   </target>
   
   <target name="war" depends="build">
