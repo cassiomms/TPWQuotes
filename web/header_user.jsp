@@ -24,6 +24,7 @@
       </div>
       <div class="menu_nav">
         <ul>
+          <li><a href="user.jsp">Profile</a></li>
           <li><a href="#">Wallet</a></li>
           <li><a href="#">Buy</a></li>
           <li><a href="#">Sell</a></li>
@@ -41,13 +42,3 @@
     </div>
   </div>
   <div class="clr"></div>
-  <div id="page">
-Listar acoes disponiveis para compra:<br>
-<form action="#" id="listbuy_form" method="post" >
-<ul>
-<input type="Submit" value="List" class="button"/>
-<li> Name: </li>
-<li> Value: </li>
-</ul>
-</form>
-</div>

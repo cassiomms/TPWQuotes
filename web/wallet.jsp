@@ -8,7 +8,13 @@
 </jsp:include>
 
 <div id="page">
-	Lista de acoes da carteira do usuario<br>
+	<big><b>Your wallet:<br></big></b>
+	<% For () {/* Carregar as quotes do usuario */%>
+		<div>
+			<p>Name: <%=w.getName()%></p>
+			<p>Quantity: <br/><%w.getQuantity()%></p>
+		</div>
+	<%Fim do For%>
 </div>
 
 <jsp:include page="footer.jsp"/>

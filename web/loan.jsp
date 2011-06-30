@@ -1,3 +1,4 @@
+<%@ include file="autentication.jsp" %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 <jsp:include page="header_user.jsp">

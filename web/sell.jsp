@@ -7,13 +7,24 @@
 </jsp:include>
 
 <div id="page">
-	Lista de acoes disponiveis para venda<br>
-	<form action="#" id="listsell_form" method="post">
-		<ul>
-			<li>Name: </li>
-			<li>Value: </li>
-		</ul>
-	</form>
+	<% For () {/* Carregar acoes a serem vendidas */%>
+		<div>
+			<p>Name: <%=t.getName()%></p>
+			<p>Value: <br/><%=t.getValue()%></p>
+			<p>Quantity: <br/><%t.getQuantity()%></p>
+			<form action="#" method="post">
+				<select name="quantity">
+					<option></option>
+					<%  /*Carregar a quantidade maxima de acoes a serem vendidas*/
+						integer count=0;
+						for(count=0;count<=t.getQuantity();count++){
+							System.out.println("<option value=\"count\">count</option>");
+						}%>
+				</select>
+				<input type="submit" name="action" value="Sell" />			
+			</form>
+		</div>
+	<%/*Fim do for*/%>
 </div>
 
 <jsp:include page="footer.jsp"/>
