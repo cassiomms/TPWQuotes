@@ -30,7 +30,7 @@ public class User implements Serializable
 	public void setName(String name) { this.name = name; }
 	public String getName() { return this.name; }
 
-	@Column(nullable=false)
+	@Column(nullable=false,unique=true)
 	public void setEmail(String email) { this.email = email; }
 	public String getEmail() { return this.email; }
 
