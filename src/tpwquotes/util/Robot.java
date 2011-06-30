@@ -1,3 +1,5 @@
+package tpwquotes.util;
+
 import java.net.*; // acesso a rede TCP/IP
 import java.io.*;  // streams
 

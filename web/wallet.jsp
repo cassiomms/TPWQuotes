@@ -1,3 +1,5 @@
+<%@ include file="autentication.jsp" %>
+
 <%@ page contentType="text/html; charset=UTF-8"%>
 <@ page import="tpwquotes.model.*, java.util.*%>
 

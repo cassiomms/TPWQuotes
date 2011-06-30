@@ -5,19 +5,19 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
-public class TickKey implements java.io.Serializable {
-	
+public class TickPk implements Serializable 
+{	
+  private Quote quote;
 	private Date date;
 	
-	public TickKey() {}
+	public TickPk() {}
 	
+	@Column
 	public Date getDate() { return this.date;}
 	public void setDate(Date date) { this.date = date; }
 	
 	@ManyToOne
-        @JoinColumn (name="code", nullable = false, updatable = false, insertable = false)
-	private Quote quote;
+  @JoinColumn (nullable = false, updatable = false, insertable = false)
 	public Quote getQuote() { return this.quote; }
 	public void setQuote(Quote quote) { this.quote = quote; }
-	
 }

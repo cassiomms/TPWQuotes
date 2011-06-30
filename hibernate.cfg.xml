@@ -25,11 +25,11 @@
     <mapping class="tpwquotes.model.Loan"/>
     <mapping class="tpwquotes.model.Quote"/>
     <mapping class="tpwquotes.model.Tick"/>
-    <mapping class="tpwquotes.model.TickKey"/>
+    <mapping class="tpwquotes.model.TickPk"/>
     <mapping class="tpwquotes.model.Transaction"/>
     <mapping class="tpwquotes.model.User"/>
     <mapping class="tpwquotes.model.Wallet"/>
-    <mapping class="tpwquotes.model.WalletKey"/>
+    <mapping class="tpwquotes.model.WalletPk"/>
     
   </session-factory>
 </hibernate-configuration>

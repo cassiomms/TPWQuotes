@@ -1,3 +1,3 @@
 #!/bin/bash
 
-watch --interval=200 "find . -name *~ -exec rm {} \; && ant build"
+watch --interval=100 "find . -name *~ -exec rm {} \; && ant build"

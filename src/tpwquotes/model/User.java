@@ -10,18 +10,19 @@ import javax.persistence.*;
 @Table(name="user_tb")
 public class User implements Serializable
 {
+	@Id
 	private String id;
 	private String name;
 	private String email;
 	private String password;
-  private String photo;
+	private String photo;
 	private String phone;
-	private Set<Transaction> transactions = new HashSet<Transaction>();
-	private Set<Balance> balances = new HashSet<Balance>();
+	
+	
 	
 	public User() {}
 
-	@Id
+	//@Id
 	public void setId(String id) { this.id = id; }
 	public String getId() { return this.id; }
 
@@ -47,11 +48,13 @@ public class User implements Serializable
 	
 	@OneToMany
 	@JoinColumn (name="user_id")
+	private Set<Transaction> transactions = new HashSet<Transaction>();
 	public Set<Transaction> getTransactions() { return this.transactions; }	
 	public void setTransactions(Set<Transaction> transactions) { this.transactions = transactions; }
 		
 	@OneToMany
 	@JoinColumn (name="user_id")
+	private Set<Balance> balances = new HashSet<Balance>();
 	public Set<Balance> getBalances() { return this.balances; }
 	public void setBalances(Set<Balance> balances) { this.balances = balances; }
 }
