@@ -13,10 +13,8 @@ public class Loan extends Transaction implements java.io.Serializable
 	@Column(name="value", nullable=false)
 	private Float value;
 	
-	public void setValue(Float value) { this.value = value; }
+	public Loan() {}
 
 	public Float getValue() { return this.value; }
-
-		public Loan() {}
-	
+	public void setValue(Float value) { this.value = value; }	
 }
