@@ -73,4 +73,10 @@ public class User implements Serializable
 	private Set<Balance> balances = new HashSet<Balance>();
 	public Set<Balance> getBalances() { return this.balances; }
 	public void setBalances(Set<Balance> balances) { this.balances = balances; }
+	
+		@OneToMany
+	@JoinColumn (name="user_id")
+	private Set<Wallet> wallet = new HashSet<Wallet>();
+	public Set<Wallet> getWallet() { return this.wallet; }
+	public void setWallet(Set<Wallet> wallet) { this.wallet = wallet; }
 }

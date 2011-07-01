@@ -19,7 +19,7 @@ public class QuoteBot {
 	public static ArrayList<Tick> getTicks(ArrayList<Quote> quotes) throws Exception {
 		Calendar cal = Calendar.getInstance();
   		String day = now("dd",cal);
-  		String month = now("MM",cal);
+  		String month = Integer.toString((Integer.parseInt(now("MM",cal))-1));
   		String year = now("yyyy",cal);
   		
   		ArrayList<Tick> ans = new ArrayList(); 
@@ -41,7 +41,7 @@ public class QuoteBot {
   		return ans;
   	}
   	
-  	public static void main(String args[]) throws Exception {
+  	public static void unitTest() throws Exception {
   		Quote q = new Quote();
   		q.setCode("MSFT");
   		q.setName("Microsoft");
@@ -52,6 +52,6 @@ public class QuoteBot {
   		ArrayList<Tick> at;
   		at = getTicks(aq);
   		
-  		System.out.println(at.get(0));
+  		System.out.println(at.get(0).getValue());
   	}	
 }

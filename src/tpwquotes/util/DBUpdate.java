@@ -11,12 +11,15 @@ public class DBUpdate {
 	
 	public static void GetUpdates() throws Exception {
 		Session dbsession = DB.getSessionFactory().getCurrentSession();
+		dbsession.beginTransaction();
+		
 		List qt = dbsession.createCriteria(Quote.class).list();
 		
 		
 		ArrayList<Quote> quotes = new ArrayList(qt);
 		
 		ArrayList<Tick> ticks = QuoteBot.getTicks(quotes);
+
 		for(int i = 0; i<ticks.size(); i++)
 			dbsession.save(ticks.get(i));
 		
@@ -40,9 +43,11 @@ public class DBUpdate {
   		aq.add(q);
   		aq.add(q2);
   		
+  		dbsession.beginTransaction();
   		dbsession.save(q);
   		dbsession.save(q2);
-  				dbsession.getTransaction().commit();
+  		
+  		dbsession.getTransaction().commit();
 		DB.getSessionFactory().close();
   		
 		GetUpdates();

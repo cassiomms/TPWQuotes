@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
+@Embeddable
 public class TickPk implements Serializable 
 {	
   private Quote quote;

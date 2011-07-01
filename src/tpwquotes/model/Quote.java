@@ -27,7 +27,7 @@ public class Quote implements java.io.Serializable {
 	public void setProfile(String profile) { this.profile = profile; }
 	
 	@OneToMany
-	@JoinColumn (name = "code")
+	@JoinColumn (name = "quote_code")
 	private Set<Tick> ticks = new HashSet<Tick>();
 	public Set<Tick> getTicks() { return this.ticks; }		
 	public void setTicks(Set<Tick> ticks) {this.ticks = ticks;}

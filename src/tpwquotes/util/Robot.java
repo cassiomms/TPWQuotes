@@ -28,6 +28,7 @@ public class Robot {
 	// Teste de unidade
 	public static void main(String args[]) throws Exception {
 		String str = Robot.get("http://ichart.finance.yahoo.com/table.csv?s=MSFT&a=05&b=22&c=2011&d=05&e=27&f=2011&g=d&ignore=.csv");
+
 		System.out.println(str);
 	}
 }
