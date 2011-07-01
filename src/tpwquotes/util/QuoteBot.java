@@ -10,14 +10,12 @@ import tpwquotes.model.*;
 public class QuoteBot {
 
 	 public static String now(String dateFormat, Calendar cal) {
-		cal = Calendar.getInstance();
    		SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
    		return sdf.format(cal.getTime());
 	}
 	
 
-	public static ArrayList<Tick> getTicks(ArrayList<Quote> quotes) throws Exception {
-		Calendar cal = Calendar.getInstance();
+	public static ArrayList<Tick> getTicks(ArrayList<Quote> quotes, Calendar cal) throws Exception {
   		String day = now("dd",cal);
   		String month = Integer.toString((Integer.parseInt(now("MM",cal))-1));
   		String year = now("yyyy",cal);
@@ -50,7 +48,8 @@ public class QuoteBot {
   		aq.add(q);
   		
   		ArrayList<Tick> at;
-  		at = getTicks(aq);
+  		Calendar cal = Calendar.getInstance();
+  		at = getTicks(aq, cal);
   		
   		System.out.println(at.get(0).getValue());
   	}	
