@@ -15,8 +15,8 @@ public class Tick implements java.io.Serializable
 	public Tick() {}
 
 	@Id
-  public TickPk getId() { return id; }
-  public void setId(TickPk id) { this.id = id; }
+  	public TickPk getId() { return id; }
+  	public void setId(TickPk id) { this.id = id; }
 	
 	@Column(nullable=false)
 	public Float getValue() { return this.value;}

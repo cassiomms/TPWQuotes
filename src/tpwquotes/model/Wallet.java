@@ -7,12 +7,12 @@ import javax.persistence.*;
 @Entity
 public class Wallet implements Serializable 
 {
-	@Id
 	private WalletPk id;
 	private Integer quantity;
 	
 	public Wallet() {}
 	
+	@Id
 	public WalletPk getId() { return id; }
 	public void setId(WalletPk id) { this.id = id; }
 	

@@ -12,12 +12,12 @@ public class TickPk implements Serializable
 	
 	public TickPk() {}
 	
-	@Column
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDate() { return this.date;}
 	public void setDate(Date date) { this.date = date; }
 	
 	@ManyToOne
-  @JoinColumn (nullable = false, updatable = false, insertable = false)
+  	@JoinColumn (nullable = false, updatable = false, insertable = false)
 	public Quote getQuote() { return this.quote; }
 	public void setQuote(Quote quote) { this.quote = quote; }
 }

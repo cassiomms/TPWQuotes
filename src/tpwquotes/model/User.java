@@ -17,6 +17,8 @@ public class User implements Serializable
 	private String password;
 	private String photo;
 	private String phone;
+	private Float funds;
+	private Float debt;
 	
 	
 	
@@ -46,11 +48,25 @@ public class User implements Serializable
 	public void setPhone(String phone) { this.phone = phone; }
 	public String getPhone() { return this.phone; }
 	
+	@Column(nullable=false)
+	public void setFunds(Float funds) { this.funds = funds; }
+	public Float getFunds() { return this.funds; }
+	
+	@Column(nullable=false)
+	public void setDebt(Float debt) { this.debt = debt; }
+	public Float getDebt() { return this.debt; }
+	
 	@OneToMany
-	@JoinColumn (name="user_id")
-	private Set<Transaction> transactions = new HashSet<Transaction>();
-	public Set<Transaction> getTransactions() { return this.transactions; }	
-	public void setTransactions(Set<Transaction> transactions) { this.transactions = transactions; }
+	@JoinColumn (name="seller_id")
+	private Set<Transaction> stransactions = new HashSet<Transaction>();
+	public Set<Transaction> getSTransactions() { return this.stransactions; }	
+	public void setSTransactions(Set<Transaction> stransactions) { this.stransactions = stransactions; }
+	
+	@OneToMany
+	@JoinColumn (name="buyer_id")
+	private Set<Transaction> btransactions = new HashSet<Transaction>();
+	public Set<Transaction> getBTransactions() { return this.btransactions; }	
+	public void setBTransactions(Set<Transaction> btransactions) { this.btransactions = btransactions; }
 		
 	@OneToMany
 	@JoinColumn (name="user_id")

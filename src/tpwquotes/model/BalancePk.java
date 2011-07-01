@@ -15,11 +15,11 @@ public class BalancePk implements Serializable
 	//public BalacePk() {}
 	
 	@ManyToOne
-  @JoinColumn(nullable = false, updatable = false, insertable = false)
+ 	@JoinColumn(nullable = false, updatable = false, insertable = false)
 	public User getUser() { return this.user; }
 	public void setUser(User user) { this.user = user; }
 
-  @Temporal(TemporalType.TIMESTAMP)
+  	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDate() { return tmsp; }
 	public void setDate(Date tmsp) { this.tmsp = tmsp; }
 }
