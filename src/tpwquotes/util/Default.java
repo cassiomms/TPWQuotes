@@ -3,7 +3,7 @@ package tpwquotes.util;
 public interface Default {
 
 	// directory to store data
-	public String filePath = "/tmp/tpwquotes";
+	public String filePath = "/usr/local/tpwquotes";
 
 	// servlets - type parameter
 	public int LOGIN = 0;
