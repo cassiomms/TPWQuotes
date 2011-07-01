@@ -75,6 +75,7 @@ public class User implements Serializable
 	public void setBalances(Set<Balance> balances) { this.balances = balances; }
 	
 	@OneToMany
+	@Basic(fetch = FetchType.EAGER)
 	@JoinColumn (name="user_id")
 	private Set<Wallet> wallet = new HashSet<Wallet>();
 	public Set<Wallet> getWallet() { return this.wallet; }
