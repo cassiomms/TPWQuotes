@@ -1,8 +1,12 @@
 #!/bin/bash
 
 LIB=lib/
-FILE=postgresql-9.0-801.jdbc4.jar
-SOURCE=http://jdbc.postgresql.org/download/$FILE
+
+JUNIT_FILE=junit-4.8.2.jar
+JUNIT_SOURCE=ftp://mirrors.ibiblio.org/pub/mirrors/maven2/junit/junit/4.8.2/junit-4.8.2.jar
+
+POSTGRES_FILE=postgresql-9.0-801.jdbc4.jar
+POSTGRES_SOURCE=http://jdbc.postgresql.org/download/$POSTGRES_FILE
 
 EJB3_FILE=ejb3-persistence-1.0.2.GA.jar
 EJB3_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/org/hibernate/ejb3-persistence/1.0.2.GA/ejb3-persistence-1.0.2.GA.jar
@@ -34,13 +38,21 @@ CGLIB_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/cglib/cglib-nodep/2.2
 JTA_FILE=jta-1.1.jar
 JTA_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/javax/transaction/jta/1.1/jta-1.1.jar
 
+SERVLETAPI_FILE=servlet-api-5.5.23.jar
+SERVLETAPI_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/tomcat/servlet-api/5.5.23/servlet-api-5.5.23.jar
+
+JSPAPI_FILE=jsp-api-2.0.jar
+JSPAPI_SOURCE=ftp://mirrors.ibiblio.org/pub/mirrors/maven2/jspapi/jsp-api/2.0/jsp-api-2.0.jar
+
+
+
 if [ ! -d $LIB ]; then
   mkdir -v -p $LIB
 fi
 
-if [ ! -f $LIB/$FILE ]; then
+if [ ! -f $LIB/$POSTGRES_FILE ]; then
   echo Downloading PostgreSQL JAR
-  wget -P $LIB $SOURCE
+  wget -P $LIB $POSTGRES_SOURCE
 fi
 
 if [ ! -f $LIB/$EJB3_FILE ]; then
@@ -91,4 +103,20 @@ fi
 if [ ! -f $LIB/$JTA_FILE ]; then
   echo Downloading Javax Transaction API
   wget -P $LIB $JTA_SOURCE
+fi
+
+if [ ! -f $LIB/$SERVLETAPI_FILE ]; then
+  echo Downloading Servlet API
+  wget -P $LIB $SERVLETAPI_SOURCE
+fi
+
+if [ ! -f $LIB/$JSPAPI_FILE ]; then
+  echo Downloading JSP API
+  wget -P $LIB $JSPAPI_SOURCE
+fi
+
+
+if [ ! -f $LIB/$JUNIT_FILE ]; then
+  echo Downloading jUnit API
+  wget -P $LIB $JUNIT_SOURCE
 fi

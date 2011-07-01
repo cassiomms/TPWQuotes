@@ -4,31 +4,14 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-/**
- * Unit test User.
- */
-public class UserTest extends TestCase
-{
-  /**
-  * Create the test case
-  *
-  * @param testName name of the test case
-  */
-  public UserTest( String testName )
-  {
-    super(testName);
-  }
+public class UserTest extends TestCase {
 
-  /**
-  * @return the suite of tests being tested
-  */
-  public static Test suite()
-  {
-    return new TestSuite(UserTest.class);
-  }
-
-  public void testModel()
-  {
-    assertTrue(true);
-  }
+  public void testAdd() { 
+        int num1 = 3; 
+        int num2 = 2; 
+        int total = 5; 
+        int sum = 0; 
+    System.out.println("teste");
+        assertEquals(6, 6); 
+  } 
 }

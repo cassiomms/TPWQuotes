@@ -3,6 +3,7 @@
   <property name="tomcat" value="/usr/local/tomcat/"/>
   <property name="deploy" value="${tomcat}/webapps/"/>
   <property name="src" value="${basedir}/src"/>
+  <property name="test" value="${basedir}/test"/>
   <property name="build" value="${basedir}/build"/>
   <property name="lib" value="${basedir}/lib"/>
   <property name="war" value="${basedir}/war"/>
@@ -53,7 +54,27 @@
 	  <copy todir="${deploy}" file="${warfile}"/>
 	</target>
 
-  <target name="clean">
-    <delete dir="${build}"/>
+  <target name="compile-test" depends="build">
+    <javac srcdir="${test}" classpathref="lib" debug="true" includeantruntime="false">
+      <classpath path="${build}"/>
+    </javac>  
   </target>
+  
+  <target name="test" depends="compile-test">
+    <junit fork="yes" printsummary="true" failureproperty="junit.failure">
+      <classpath path="${test}" />
+      <batchtest fork="yes">
+        <fileset dir="${test}" includes="**/*Test*.class" /> 
+      </batchtest>
+    </junit>
+  </target>
+ 
+  <target name="clean">
+    <delete dir="${build}" verbose="true"/>
+    <delete verbose="true">
+      <fileset dir="${test}" includes="**/*.class" />
+    </delete>
+  </target>
+  
+  <fail if="junit.failure" message="Unit test(s) failed. FUUUU!"/>
 </project>
