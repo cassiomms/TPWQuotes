@@ -38,11 +38,11 @@ CGLIB_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/cglib/cglib-nodep/2.2
 JTA_FILE=jta-1.1.jar
 JTA_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/javax/transaction/jta/1.1/jta-1.1.jar
 
-SERVLETAPI_FILE=servlet-api-5.5.23.jar
-SERVLETAPI_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/tomcat/servlet-api/5.5.23/servlet-api-5.5.23.jar
+#SERVLETAPI_FILE=servlet-api-5.5.23.jar
+#SERVLETAPI_SOURCE=http://mirrors.ibiblio.org/pub/mirrors/maven2/tomcat/servlet-api/5.5.23/servlet-api-5.5.23.jar
 
-JSPAPI_FILE=jsp-api-2.0.jar
-JSPAPI_SOURCE=ftp://mirrors.ibiblio.org/pub/mirrors/maven2/jspapi/jsp-api/2.0/jsp-api-2.0.jar
+#JSPAPI_FILE=jsp-api-2.0.jar
+#JSPAPI_SOURCE=ftp://mirrors.ibiblio.org/pub/mirrors/maven2/jspapi/jsp-api/2.0/jsp-api-2.0.jar
 
 
 
@@ -105,15 +105,15 @@ if [ ! -f $LIB/$JTA_FILE ]; then
   wget -P $LIB $JTA_SOURCE
 fi
 
-if [ ! -f $LIB/$SERVLETAPI_FILE ]; then
-  echo Downloading Servlet API
-  wget -P $LIB $SERVLETAPI_SOURCE
-fi
+#if [ ! -f $LIB/$SERVLETAPI_FILE ]; then
+#  echo Downloading Servlet API
+#  wget -P $LIB $SERVLETAPI_SOURCE
+#fi
 
-if [ ! -f $LIB/$JSPAPI_FILE ]; then
-  echo Downloading JSP API
-  wget -P $LIB $JSPAPI_SOURCE
-fi
+#if [ ! -f $LIB/$JSPAPI_FILE ]; then
+#  echo Downloading JSP API
+#  wget -P $LIB $JSPAPI_SOURCE
+#fi
 
 
 if [ ! -f $LIB/$JUNIT_FILE ]; then

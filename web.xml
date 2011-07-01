@@ -16,10 +16,9 @@
     <url-pattern>/userservlet</url-pattern>
   </servlet-mapping>
   
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>LoanServlet</servlet-name>
     <url-pattern>/loanservlet</url-pattern>
   </servlet-mapping>
-  
 </web-app>
 
