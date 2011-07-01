@@ -37,4 +37,3 @@
       <div class="header_img"></div>
     </div>
   </div>
-  <div class="clr"></div>
