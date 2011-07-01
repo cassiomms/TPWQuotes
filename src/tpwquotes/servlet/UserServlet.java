@@ -22,6 +22,7 @@ public class UserServlet extends HttpServlet implements Default
 	   String targetUrl = "index.jsp?msg=bug";
 	   try
 	   {
+	   		
 			// redirecionar de forma forcada
 			//PageContext pageContext = JspFactory.getDefaultFactory().getPageContext(this, request, response, null, true, 8192, true);
 
@@ -181,6 +182,8 @@ public class UserServlet extends HttpServlet implements Default
 						dbsession.beginTransaction();
 						
 						u.setPhoto(filePath+"/"+u.getId()+fitem.getName().substring(fitem.getName().lastIndexOf('.')));
+						u.setFunds(1000.0f);
+						u.setDebt(0.0f);
 						
 						dbsession.save(u);
 						dbsession.getTransaction().commit();
