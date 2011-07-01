@@ -5,7 +5,6 @@
 <jsp:include page="header_user.jsp">
 <jsp:param name="PAGE_TITLE" value="TPWQuotes"/>
 </jsp:include>
-
 <div id="menu">
   <ul>
     <li><a href="user.jsp" title="Charts"><span>Profile</span></a></li>
@@ -13,10 +12,14 @@
     <li><a href="loans_user.jsp" title="Loans"><span>Loans</span></a></li>
     <li><a href="charts_user.jsp" title="Charts"><span>Charts</span></a></li>
   </ul>
-  <p><p><p></p></p></p>
-	<div>
-		<h3>User's photo
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50" width="50" src="static/images/userpic.gif<%/*Inserir a foto aqui*/%>" alt="User's photo">
-	</div>	  
+</div>
+<div id="page">
+	<% For () {/* Carregar a Balance do user para cada data */%>
+		<div>
+			<b><p>Date: <%=b.getDate()%></p>
+			<b><p>Fund: <br/><%=b.getFund()%></p>
+			<b><p>Debit: <br/><font color="red"><%b.getDebit()%></font></p>
+		</div>
+	<%}//Fim do for%>
 </div>
 <jsp:include page="footer.jsp"/>

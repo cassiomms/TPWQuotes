@@ -16,7 +16,7 @@
 			  </span>
 		</form>
 	</div>
-	<%/*Buscar as quotes indicadas*/%>
+	<%/*Buscar as quotes desejadas*/%>
 	<div>
 			<p>Name: <%=t.getName()%></p>
 			<p>Value: <br/><%=t.getValue()%></p>

@@ -25,10 +25,10 @@
       <div class="menu_nav">
         <ul>
           <li><a href="user.jsp">Profile</a></li>
-          <li><a href="#">Wallet</a></li>
-          <li><a href="#">Buy</a></li>
-          <li><a href="#">Sell</a></li>
-          <li><a href="#">Loan</a></li>
+          <li><a href="wallet.sp">Wallet</a></li>
+          <li><a href="buy.jsp">Buy</a></li>
+          <li><a href="sell.jsp">Sell</a></li>
+          <li><a href="loan.jsp">Loan</a></li>
           <li><a href="userservlet?type=1">Logout</a></li>
         </ul>
       </div>
@@ -41,4 +41,3 @@
       <div class="header_img"></div>
     </div>
   </div>
-  <div class="clr"></div>
