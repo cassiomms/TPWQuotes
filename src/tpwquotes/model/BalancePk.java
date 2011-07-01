@@ -12,7 +12,7 @@ public class BalancePk implements Serializable
   private User user;
 	private Date tmsp;
 		
-	//public BalacePk() {}
+	//public BalancePk() {}
 	
 	@ManyToOne
  	@JoinColumn(nullable = false, updatable = false, insertable = false)
