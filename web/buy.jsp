@@ -8,23 +8,16 @@
 
 <div id="page">
 	<div>
-		<big><b>Search the quotes:</big></b><br>
-		<form id="form" name="searchQuotesToBuy_form" method="post" action="searchQuotes.jsp">
+		<big><b>Buy your quote:</big></b><br>
+		<form id="buy_form" method="post" action="buyservlet">
 			  <span>
-			  <input name="q" type="text" class="keywords" id="code" maxlength="50" value="Search..." />
-			  <input name="b" type="image" src="static/images/search.gif" class="button" />
+			  <p align="center">Quote:     <input type="text" id="quote" name="quote" /></p>
+			  <p align="center">Quantity:     <input type="text" id="quantity" name="quantity" /></p>
+			  <p align="center"><input name="buy" type="image" src="static/images/submit.gif" class="button" /></p>
 			  </span>
 		</form>
 	</div>
-	<%/*Buscar as quotes indicadas*/%>
-	<div>
-			<p>Name: <%=t.getName()%></p>
-			<p>Value: <br/><%=t.getValue()%></p>
-			<form action="#" name="indicatedQuotes_form" method="post">
-				<input type="text" name="quantity" value="<%/*Valor da quantidade que sera usado para calcular o total*/%>"/>
-				<input type="submit" name="action" value="Sell" />			
-			</form>
-	</div>
+	
 </div>
 
 <jsp:include page="footer.jsp"/>

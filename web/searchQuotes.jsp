@@ -9,7 +9,8 @@
 <div id="page">
 	<div>
 		<big><b>Search the quotes:</big></b><br>
-		<form id="form" name="searchQuotesToBuy_form" method="post" action="searchQuotes.jsp">
+		<form id="form" name="searchQuotesToBuy_form" method="post" action="searchservlet">
+		<!-- servlet procura a quote na web ou no banco, redireciona o usuario para buy.jsp com a quote selecionada ou para pagina de erro -->
 			  <span>
 			  <input name="q" type="text" class="keywords" id="code" maxlength="50" value="Search..." />
 			  <input name="b" type="image" src="static/images/search.gif" class="button" />
