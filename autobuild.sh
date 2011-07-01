@@ -1,3 +1,7 @@
 #!/bin/bash
 
-watch --interval=100 "find . -name *~ -exec rm {} \; && ant build"
+while [ true ]; do
+  ant build test
+  sleep 5
+done
+

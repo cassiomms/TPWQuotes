@@ -3,4 +3,9 @@
 *.jar
 *.gz
 *.class
+*.war
+war/*
+junit*.properties
+test-report/*
+test-results/*
 

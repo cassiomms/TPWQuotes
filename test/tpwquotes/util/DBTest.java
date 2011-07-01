@@ -30,13 +30,15 @@ public class DBTest extends TestCase
     return new TestSuite(DBTest.class);
   }
 
-  public void testSessionCreate()
+  public void testSessionCreate() throws Exception
   {
-    Session session = DB.getSessionFactory().getCurrentSession();
+    Session session = null;
+    
+    session = DB.getSessionFactory().getCurrentSession();
     session.getTransaction().begin();
     session.getTransaction().commit();
     session.getSessionFactory().close(); 
-
+  
     assertTrue(true);
   }
 }

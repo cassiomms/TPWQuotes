@@ -4,6 +4,8 @@
   <property name="deploy" value="${tomcat}/webapps/"/>
   <property name="src" value="${basedir}/src"/>
   <property name="test" value="${basedir}/test"/>
+  <property name="test-results" value="${basedir}/test-results"/>
+  <property name="test-report" value="${basedir}/test-report"/>
   <property name="build" value="${basedir}/build"/>
   <property name="lib" value="${basedir}/lib"/>
   <property name="war" value="${basedir}/war"/>
@@ -16,7 +18,7 @@
     </fileset>
     <fileset dir="${tomcat}/lib">
       <include name="*.jar"/>
-    </fileset>
+    </fileset>  
   </path>
 
   <target name="build">
@@ -59,16 +61,35 @@
       <classpath path="${build}"/>
     </javac>  
   </target>
-  
+
   <target name="test" depends="compile-test">
-    <junit fork="yes" printsummary="true" failureproperty="junit.failure">
-      <classpath path="${test}" />
-      <batchtest fork="yes">
+    <mkdir dir="${test-results}" />
+    <junit fork="yes" forkmode="perBatch" haltonfailure="false" 
+           printsummary="true" failureproperty="test.failed">
+      <classpath>
+        <path refid="lib"/>
+        <pathelement location="."/>
+        <pathelement location="${build}"/>
+        <pathelement location="${test}"/>
+      </classpath>
+      <formatter type="brief" usefile="true" />
+      <formatter type="xml" />
+      <batchtest todir="${test-results}">
         <fileset dir="${test}" includes="**/*Test*.class" /> 
       </batchtest>
     </junit>
+
+    <mkdir dir="${test-report}" />
+    <junitreport todir="${test-report}">
+        <fileset dir="${test-results}">
+            <include name="TEST-*.xml"/>
+        </fileset>
+        <report format="frames" todir="${test-report}"/>
+    </junitreport>
+
+    <fail if="test.failed"/>
   </target>
- 
+  
   <target name="clean">
     <delete dir="${build}" verbose="true"/>
     <delete verbose="true">
@@ -76,5 +97,4 @@
     </delete>
   </target>
   
-  <fail if="junit.failure" message="Unit test(s) failed. FUUUU!"/>
 </project>
