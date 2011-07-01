@@ -1,19 +1,19 @@
-View quase toda
-Controller todo
-Um pedaco do model
-Script de obtencao automatica de libs
-Arquivo do ant com as targets
+View quase toda - ALMOST DONE
+Controller todo 
+Um pedaco do model - DONE
+Script de obtencao automatica de libs - DONE
+Arquivo do ant com as targets - DONE
 
 
 
 ACTIONS
 
--log in / create user
+-log in / create user - DONE
 
 -add quote to watch
 -buy stock / view market
 -sell stock / auction
--get loan / pay loan
+-get loan / pay loan - SERVLET DONE
 -view info
 
 
@@ -27,7 +27,7 @@ DISPLAY
 
 REFRESH
 
--get daily info on quote ticks
--submit daily info on balance history
--generate daily interest rates
+-get daily info on quote ticks - DONE
+-submit daily info on balance history - DONE
+-generate daily interest rates and update users' debts
 

@@ -6,9 +6,20 @@
     <servlet-class>tpwquotes.servlet.UserServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>LoanServlet</servlet-name>
+    <servlet-class>tpwquotes.servlet.LoanServlet</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/userservlet</url-pattern>
   </servlet-mapping>
+  
+    <servlet-mapping>
+    <servlet-name>LoanServlet</servlet-name>
+    <url-pattern>/loanservlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
 

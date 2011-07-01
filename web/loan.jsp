@@ -7,7 +7,8 @@
 
 <div id="page">
 	<center><big><b>Solicitar Emprestimo<br>
-	<form action = "#" id="loan_form" method="post" enctype="multpart/form-data">
+	<form action = "loanservlet" id="loan_form" method="post" enctype="multpart/form-data">
+	<p align="center"><input type="hidden" size="15" name="type" value="7"/></p>
 	<p align="center"><b>Valor: <input type="text" size="15" id="value" name="value" /></p>
 	<p align="center"><input type="submit" value="Submit" class="button"/></p>
 	</form>

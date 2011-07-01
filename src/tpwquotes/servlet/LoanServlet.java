@@ -58,8 +58,8 @@ public class LoanServlet extends HttpServlet implements Default
 					if (u == null)
 						targetUrl = "user.jsp?msg=noautentication";
 					else
-					{
-						t = request.getParameter("value");						
+					{ 
+						t = request.getParameter("value");					
 						value = Float.parseFloat(t);
 						cal = Calendar.getInstance();
 						
@@ -67,14 +67,14 @@ public class LoanServlet extends HttpServlet implements Default
 						Loan l = new Loan();
 						l.setValue(value);
 						l.setDate(cal.getTime());
-						l.setBuyer(u);
+						l.setBuyer(u); //PRECISA DE UM USER BANCO (0) JA CRIADO NO SISTEMA
 						User b = (User) dbsession.load(User.class,"0");
 						l.setSeller(b);
 						
 						u.setFunds(u.getFunds() + value);
 						u.setDebt(u.getDebt() + value);		
 						
-						dbsession.save(u);
+						dbsession.update(u);
 						dbsession.save(l);
 						dbsession.getTransaction().commit();
 						
@@ -98,7 +98,7 @@ public class LoanServlet extends HttpServlet implements Default
 					     		dbsession.beginTransaction();
 							u.setDebt(u.getDebt() - value);
 							u.setFunds(u.getFunds() - value);	
-							dbsession.save(u);
+							dbsession.update(u);
 							dbsession.getTransaction().commit();		
 						  }
 					}
